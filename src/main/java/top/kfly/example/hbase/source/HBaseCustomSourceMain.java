@@ -18,11 +18,12 @@ public class HBaseCustomSourceMain {
 
         Dataset<Row> load = spark.read()
                 .format("top.kfly.hbase.source.HBaseCustomSource")
+//                .format("top.kfly.hbase.source.HBaseSource")
                 .option(Contains.HBASE_TABlE_NAME, "flink:kfly_orders")
                 // ,f1:payFrom,f1:province,1:realTotalMoney
-                .option(Contains.HBASE_TABLE_SCHEMA, " f1:userId , f1:goodId , f1:goodsMoney , f1:orderNo ")
-                .option(Contains.SPARK_SQL_TABlE_SCHEMA, "userId String,goodId String,goodsMoney String,orderNo String")
-                .load().filter("goodId > 1000").select("userId","goodId","orderNo");
+                .option(Contains.HBASE_TABLE_SCHEMA, " f1:userId,f1:goodsMoney,f1:orderNo,f1:goodId")
+                .option(Contains.SPARK_SQL_TABlE_SCHEMA, "userId String,goodsMoney String,orderNo String,goodId String")
+                .load().select("goodsMoney","orderNo","goodId").filter("goodId>1000 and goodId < 2000");
 
         load.explain(true);
 
