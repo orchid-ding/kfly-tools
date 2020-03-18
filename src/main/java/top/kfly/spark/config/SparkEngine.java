@@ -60,6 +60,11 @@ public class SparkEngine {
         sparkConf.set("spark.speculation.quantile","0.9");  //完成任务的百分比，然后才能启动推测执行
         sparkConf.set("spark.streaming.backpressure.initialRate" , "500");  // //开启sparkStreaming的背压机制，然后第一批次获取数据的最大速率
 
+        /**
+         * 存储自己的实体类
+         */
+        Class[] classes = new Class[]{String.class,Object.class};
+        sparkConf.registerKryoClasses(classes);
         return sparkConf;
     }
 

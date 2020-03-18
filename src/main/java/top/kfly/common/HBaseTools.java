@@ -16,7 +16,6 @@ import org.apache.hadoop.hbase.util.Bytes;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author dingchuangshi
@@ -27,10 +26,10 @@ public class HBaseTools {
 
     public static Configuration getHBaseConfiguration(){
         Configuration hconf = HBaseConfiguration.create();
-        hconf.set(Contains.HBASE_ZOOKEEPER_QUORUM, ConfigUtil.getConfig(Contains.HBASE_ZOOKEEPER_QUORUM));
-        hconf.set(Contains.HBASE_ZOOKEEPER_PROPERTY_CLIENT_PORT, ConfigUtil.getConfig(Contains.HBASE_ZOOKEEPER_PROPERTY_CLIENT_PORT));
-        hconf.setInt(Contains.HBASE_CLIENT_OPERATION_TIMEOUT, Integer.parseInt(ConfigUtil.getConfig(Contains.HBASE_CLIENT_OPERATION_TIMEOUT)));
-        hconf.set(Contains.ZOOKEEPER_ZNODE_PARENT,ConfigUtil.getConfig(Contains.ZOOKEEPER_ZNODE_PARENT));
+        hconf.set(Constants.HBASE_ZOOKEEPER_QUORUM, ConfigUtil.getConfig(Constants.HBASE_ZOOKEEPER_QUORUM));
+        hconf.set(Constants.HBASE_ZOOKEEPER_PROPERTY_CLIENT_PORT, ConfigUtil.getConfig(Constants.HBASE_ZOOKEEPER_PROPERTY_CLIENT_PORT));
+        hconf.setInt(Constants.HBASE_CLIENT_OPERATION_TIMEOUT, Integer.parseInt(ConfigUtil.getConfig(Constants.HBASE_CLIENT_OPERATION_TIMEOUT)));
+        hconf.set(Constants.ZOOKEEPER_ZNODE_PARENT,ConfigUtil.getConfig(Constants.ZOOKEEPER_ZNODE_PARENT));
         return hconf;
     }
 
@@ -48,9 +47,9 @@ public class HBaseTools {
 
     /**
      * 创建表
-     * @param tableNameString
-     * @param columnFamilies
-     * @param splitKey
+     * @param tableNameString hbase table name
+     * @param columnFamilies 列镞
+     * @param splitKey hbase预分区
      * @throws IOException
      */
     public static void createTable(Connection connection, String tableNameString, List<String> columnFamilies,byte[][] splitKey) throws IOException {

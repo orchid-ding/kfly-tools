@@ -3,7 +3,7 @@ package top.kfly.common;
 /**
  * @author dingchuangshi
  */
-public class Contains {
+public class Constants {
 
     public final static String HBASE_TABlE_NAME = "hbase_table_name";
 
@@ -21,4 +21,6 @@ public class Contains {
     public final static String ZOOKEEPER_ZNODE_PARENT = "zookeeper.znode.parent";
 
 
+    public static final String JEDIS_HOST = "jedis.host";
+    public static final String JEDIS_PORT = "jedis.port";
 }
