@@ -97,6 +97,20 @@ public class HBaseTools {
         return byteNum;
     }
 
+    /**
+     * 关闭连接
+     */
+    public static void closeConn(){
+        if(connection != null){
+            try {
+                connection.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 
 
 }

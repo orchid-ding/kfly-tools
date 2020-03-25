@@ -6,6 +6,7 @@ import top.kfly.common.Constants
 
 /**
  * 自定义spark sql数据源
+ *  {@link ReadSupport }支持读取操作
  */
 class HBaseCustomSource extends DataSourceV2 with ReadSupport{
 
