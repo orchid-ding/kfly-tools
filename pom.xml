@@ -10,7 +10,7 @@
 
     <properties>
         <github.global.server>github</github.global.server>
-        <spark.version>2.3.0</spark.version>
+        <spark.version>2.1.1</spark.version>
     </properties>
 
 
